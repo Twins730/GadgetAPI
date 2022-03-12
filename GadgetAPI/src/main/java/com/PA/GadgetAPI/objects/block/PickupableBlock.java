@@ -2,12 +2,12 @@ package com.PA.GadgetAPI.objects.block;
 
 import com.PA.GadgetAPI.GadgetAPI;
 import com.PA.GadgetAPI.init.KeyBindingInit;
-import com.PA.GadgetAPI.testing.ItemInit;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
@@ -28,9 +28,14 @@ public abstract class PickupableBlock extends Block {
     private List<CompoundNBT> data = new ArrayList<>();
     private List<String> dataName = new ArrayList<>();
     private boolean overrideAltInteraction = true;
+    private Item item;
 
     public PickupableBlock(Properties properties) {
         super(properties);
+    }
+
+    public void setItem(Item item){
+        this.item = item;
     }
 
     @Override
@@ -38,7 +43,7 @@ public abstract class PickupableBlock extends Block {
     public void playerWillDestroy(World world, BlockPos blockPos, BlockState state, PlayerEntity entity) {
         TileEntity tileentity = world.getBlockEntity(blockPos);
         if (!world.isClientSide && tileentity != null) {
-            ItemStack stack = new ItemStack(ItemInit.pickupableTestItem.get());
+            ItemStack stack = new ItemStack(item);
             CompoundNBT compoundnbt = tileentity.getTileData();
             stack.addTagElement("TileData", compoundnbt);
             if (data.size() > 0) {
@@ -59,8 +64,8 @@ public abstract class PickupableBlock extends Block {
         TileEntity tileentity = world.getBlockEntity(pos);
         if (tileentity != null) {
             if (entity.isShiftKeyDown()) {
-                if (ItemInit.pickupableTestItem.get() != null) {
-                    ItemStack stack = new ItemStack(ItemInit.pickupableTestItem.get());
+                if (item != null) {
+                    ItemStack stack = new ItemStack(item);
                     CompoundNBT compoundnbt = tileentity.getTileData();
                     stack.addTagElement("TileData", compoundnbt);
                     if (data.size() > 0) {
