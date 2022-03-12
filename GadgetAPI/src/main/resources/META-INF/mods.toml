@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+[[mods]]
+modId="gadget_api"
+version="${file.jarVersion}"
+displayName="GadgetAPI"
+logoFile="gadget_api.png"
+credits="Mojang,Java, and forge"
+authors="Twins730"
+description='''
+NONE YET
+'''
+[[dependencies.gadget_api]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.gadget_api]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"

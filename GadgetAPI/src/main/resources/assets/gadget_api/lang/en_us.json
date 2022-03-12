@@ -1,0 +1,12 @@
+{
+  "background.gadget_api.dev": "Dev",
+  "background.gadget_api.horse": "Horse",
+  "background.gadget_api.beach": "Beach",
+  "background.gadget_api.mesa": "Mesa",
+  "background.gadget_api.sunset": "Sunset",
+  "background.gadget_api.dusk": "Dusk",
+  "background.gadget_api.space": "Space",
+  "background.gadget_api.bricks": "Bricks",
+  "gadget_api.keys": "Gadget Keys",
+  "key.gadget_api.alt_interact": "Alt Interact"
+}
